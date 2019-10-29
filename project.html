@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+ <head>
+ 	<title>Centroid Calculator</title>
+ </head>
+<body style="background-color:powderblue;">
+<div id='d1' style="background-color:white;position:absolute; top:0px; left:1140px; z-index:1">  
+<canvas id="myCanvas" width="700" height="500" style="border:2px solid #1a1a1a;">
+</canvas>
+</div>
+    <div class="header">
+    <h2>
+    Creating the shape
+    </h2>
+<p>To find the centroid of the required object lets start off by creating the object.Click on the shape that you want to start off with.Then add the</p>
+<p>dimensions and co-ordinates of the centre of mass of the shape.</p>
+<div>
+<button onclick="abc(1)"><img src="square.png" width="50" height="50" alt="square"><br/>Rectangle</button>
+<button onclick="abd(1)"><img src="circle.png" width="50" height="50" alt="circle"><br/>Circle</button>
+<button onclick="abe(1)"><img src="triangle.png" width="50" height="50" alt="circle"><br/>Triangle</button>
+</div> 
+<div id='d2' style="background-color:white;position:absolute; top:250px; left:10px; z-index:1"> 
+<form id="Square1"name="Square" method="post" style="background-color:green;" >
+ Length:<input type="text" name="length3">
+ Width:<input type="text"name="width3">
+ <br>
+ X:<input type="text" name="sx">
+ Y:<input type="text"name="sy">
+ <input type="button" onclick="cSquare(this.form)" value="Create">
+</form>
+ <form id="Circle1" name="Circle" method="post" style="background-color:yellow;" >
+ Radius:<input type="text" name="radius">
+  X:<input type="text" name="cx">
+ <br>
+ Y:<input type="text"name="cy">
+ <input type="button"  id="r1" onclick="cCircle(this.form)" value="Create">
+ </form>
+ <form id="Triangle1"name="Triangle" method="post" style="background-color:orange;"  >
+ Vertex1
+ <br>
+ X:<input type="text" id="h1"name="X1">
+ Y:<input type="text" id="b1"name="Y1">
+ <br>
+ Vertex2
+ <br>
+ X:<input type="text" id="h1"name="X2">
+ Y:<input type="text" id="b1"name="Y2">
+ <br>
+ Vertex3
+ <br>
+ X:<input type="text" id="h1"name="X3">
+ Y:<input type="text" id="b1"name="Y3">
+ <br>
+ <input type="button" onclick="cTriangle(this.form)" value="Create">
+ </form>
+<script language="javascript">
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var slength=document.getElementById("length3");
+var swidth=document.getElementById("width3");
+var cradius=document.getElementById("radius");
+document.getElementById("Square1").style.display="none";
+document.getElementById("Circle1").style.display="none";
+document.getElementById("Triangle1").style.display="none";
+document.getElementById("f1").style.display="none";
+var squareax=0;
+var squareay=0;
+var scount=0;
+var circleax=0;
+var circleay=0;
+var ccount=0;
+var triangleax=0;
+var triangleay=0;
+var tcount=0;
+function rect(x,y,l,w){
+ctx.beginPath();
+ctx.rect(x,y,l,w);
+ctx.fillStyle= "black";
+ctx.fill();
+ctx.closePath();
+}
+function circle(x,y,r){
+ctx.beginPath();
+ctx.arc(x,y,r,0,Math.PI*2)
+ctx.fillStyle= "#FF0000";
+ctx.fill();
+ctx.closePath();
+}
+function triangle(x1,y1,x2,y2,x3,y3){
+	 ctx.beginPath();
+	 ctx.moveTo(x1,y1);
+	 ctx.lineTo(x2,y2);
+     ctx.lineTo(x3,y3);
+     ctx.lineTo(x1,y1);
+     ctx.lineWidth=3;
+     ctx.strokeStyle='#666666';
+     ctx.stroke();
+     ctx.fillStyle="#FFCC00";
+     ctx.fill();
+     ctx.closePath();
+}
+function cSquare(form){
+	rect(parseFloat(form.sx.value)+350,(250-parseFloat(form.sy.value)),form.length3.value,form.width3.value);
+	rect(350,0,0.5,500);
+    rect(0,250,700,0.5);
+    squareax+=parseFloat(form.sx.value)+350+(parseFloat(form.length3.value))/2;
+    squareay+=250-parseFloat(form.sy.value)+(parseFloat(form.width3.value))/2;
+    scount+=1
+}
+function cCircle(form){
+	circle(parseFloat(form.cx.value)+350,250-parseFloat(form.cy.value),form.radius.value);
+	rect(350,0,0.5,500);
+    rect(0,250,700,0.5);
+    circleax+=parseFloat(form.cx.value)+350;
+    circleay+=250-parseFloat(form.cy.value);
+    ccount+=1;
+}
+function cTriangle(form){
+	triangle(parseFloat(form.X1.value)+350,250-parseFloat(form.Y1.value),parseFloat(form.X2.value)+350,250-parseFloat(form.Y2.value),parseFloat(form.X3.value)+350,250-parseFloat(form.Y3.value));
+	rect(350,0,0.5,500);
+    rect(0,250,700,0.5);
+    triangleax+=(parseFloat(form.X1.value)+350+parseFloat(form.X2.value)+350+parseFloat(form.X3.value)+350)/3;
+    triangleay+=(250-parseFloat(form.Y1.value)+250-parseFloat(form.Y2.value)+250-parseFloat(form.Y3.value))/3;
+    tcount+=1;
+}
+function abc(a){
+	if(a==1)
+	   document.getElementById("Square1").style.display="block";
+	   document.getElementById("Circle1").style.display="none";
+       document.getElementById("Triangle1").style.display="none";
+       document.getElementById("f1").style.display="block";
+
+}
+function abd(a){
+	if(a==1)
+	   document.getElementById("Circle1").style.display="block";
+	   document.getElementById("Square1").style.display="none";
+       document.getElementById("Triangle1").style.display="none";
+       document.getElementById("f1").style.display="block";
+}
+function abe(a){
+	if(a==1)
+	   document.getElementById("Triangle1").style.display="block";
+	   document.getElementById("Circle1").style.display="none";
+       document.getElementById("Square1").style.display="none";
+       document.getElementById("f1").style.display="block";
+}
+</script>
+</body>
+</html>
+	
