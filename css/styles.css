@@ -1,0 +1,143 @@
+/**
+ * Styles for Project_centroid
+ * Main stylesheet for the centroid calculation application
+ */
+
+/* Base styles */
+body {
+  background-color: powderblue;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Canvas container */
+.canvas-container {
+  background-color: white;
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  z-index: 1;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#myCanvas {
+  border: 2px solid #1a1a1a;
+  border-radius: 3px;
+}
+
+/* Form styles */
+.form-container {
+  background-color: white;
+  position: absolute;
+  top: 250px;
+  left: 10px;
+  z-index: 1;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.shape-form {
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 5px;
+  display: none;
+}
+
+.shape-form.rectangle {
+  background-color: lightgreen;
+}
+
+.shape-form.circle {
+  background-color: lightyellow;
+}
+
+.shape-form.triangle {
+  background-color: lightsalmon;
+}
+
+/* Button styles */
+.shape-selector {
+  margin: 10px 0;
+}
+
+.shape-button {
+  margin: 5px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.shape-button:hover {
+  background-color: #f0f0f0;
+}
+
+.shape-button img {
+  display: block;
+  margin: 0 auto 5px;
+}
+
+/* Input styles */
+input[type="text"] {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 80px;
+}
+
+input[type="button"] {
+  margin: 5px;
+  padding: 8px 15px;
+  border: 1px solid #333;
+  border-radius: 3px;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+input[type="button"]:hover {
+  background-color: #e8e8e8;
+}
+
+/* Header styles */
+h2 {
+  color: #333;
+  margin: 15px 0 10px 0;
+}
+
+p {
+  color: #555;
+  line-height: 1.4;
+  margin: 10px 0;
+}
+
+/* Section styles */
+.section {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+  .canvas-container {
+    position: relative;
+    right: auto;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  .form-container {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+}
