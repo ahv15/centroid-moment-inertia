@@ -74,24 +74,6 @@ Project_centroid/
    - Click "Calculate" to compute and display the centroid
    - The result shows coordinates relative to the origin
 
-## Technical Details
-
-### Architecture
-
-The application uses a modular JavaScript architecture:
-
-- **utils.js**: Common helper functions and DOM utilities
-- **shapes.js**: Canvas drawing functions for geometric shapes
-- **centroid.js**: Mathematical algorithms for centroid calculation
-- **inertia.js**: Moment of inertia computation methods
-- **ui.js**: User interface logic and event handling
-
-### Browser Compatibility
-
-- Modern browsers with HTML5 Canvas support
-- JavaScript ES6+ features
-- No external dependencies required
-
 ## Mathematical Background
 
 ### Centroid Calculation
